@@ -1,0 +1,16 @@
+Ign http://ubuntu.excellmedia.net trusty InRelease
+Hit http://ppa.launchpad.net trusty InRelease
+Ign http://extras.ubuntu.com trusty InRelease
+Hit http://ubuntu.excellmedia.net trusty-updates InRelease
+Hit http://extras.ubuntu.com trusty Release.gpg
+Hit http://ubuntu.excellmedia.net trusty-backports InRelease
+Hit http://ppa.launchpad.net trusty/main amd64 Packages
+Hit http://extras.ubuntu.com trusty Release
+Hit http://ubuntu.excellmedia.net trusty-security InRelease
+Hit http://extras.ubuntu.com trusty/main Sources
+Hit http://ppa.launchpad.net trusty/main i386 Packages
+Get:1 http://ubuntu.excellmedia.net trusty Release.gpg [933 B]
+Hit http://ubuntu.excellmedia.net trusty-updates/main Sources
+Hit http://extras.ubuntu.com trusty/main amd64 Packages
+Hit http://ppa.launchpad.net trusty/main Translation-en
+Hit http://ubuntu.excellmedia.net trusty-updates/restricted Sources

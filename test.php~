@@ -1,0 +1,9 @@
+<?php
+echo '<pre>';
+echo shell_exec('whois 14.139.109.130');
+echo '</pre>'
+?>
+
+
+
+

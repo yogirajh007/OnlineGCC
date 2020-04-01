@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test compiler</title>
+</head>
+<body style="text-align: center;">
+		Enter your code:
+
+<form action="test.php" method="post" id="testform">
+	<textarea name="data" style="vertical-align: center" rows="4" cols="50">	
+	</textarea>
+	<br>
+	<input type="submit" name="compile">
+</form>
+</body>
+</html>
