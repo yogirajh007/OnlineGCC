@@ -75,7 +75,7 @@ if(!strpos($errordata,"error"))
   echo "</div><br><h2>OUTPUT:</h2>";
   exec("chmod 777 a.out");
 
-$output = shell_exec("timeout 5s ./a.out <input.txt");
+$output = shell_exec("timeout 2s ./a.out <input.txt");
                 echo "<textarea style=\"vertical-align: center\" rows=\"7\" cols=\"80\">$output</textarea>";
 
 $endtime = microtime(true);

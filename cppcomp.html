@@ -42,17 +42,6 @@
 
 <!--/.Navbar -->
 	<div class="container" style="padding-top: 10px;">
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuMenu" data-toggle="dropdown"
-    aria-haspopup="true" aria-expanded="false" style="margin-left: 15px;">
-    Language
-  </button><br><br>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuMenu">
-    <button class="dropdown-item" type="button"><a href="readytocomp.html">C</a></button>
-    <button class="dropdown-item" type="button"><a href="#">C++</a></button>
-    <button class="dropdown-item" type="button">JAVA (Coming Soon)</button>
-  </div>
-</div>
 <div class="row">
 	<div class="col-md-6 col-lg-6">
 
@@ -61,7 +50,7 @@
         Enter Code:
 
 <div style="transform: translateY(10px);">
-  <textarea name="data" style="vertical-align: center; " rows="10" cols="60">  
+  <textarea name="data" data-editor="c_cpp" data-gutter="1" style="horizontal-align: center; " rows="10" cols="60">  
   </textarea>
 </div>
 
@@ -74,15 +63,11 @@
 </form> 
 </div>
 </div>
- <div class="col-md-6 col-lg-6" style="padding-top: 20px;">
-    <div style="background-color: #c6bcbc; margin-left: 100px ;margin-right: 100px;">
-      hfieuhfiuehf
-    </div>
-  </div>
 </div>
 </div>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js"></script>
 
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -92,5 +77,30 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.0/js/mdb.min.js"></script>
+<script>
+$(function() {
+  $('textarea[data-editor]').each(function() {
+    var textarea = $(this);
+    var mode = textarea.data('editor');
+    var editDiv = $('<div>', {
+      position: 'absolute',
+      width: textarea.width(),
+      height: textarea.height(),
+      'class': textarea.attr('class')
+    }).insertBefore(textarea);
+    textarea.css('display', 'none');
+    var editor = ace.edit(editDiv[0]);
+    editor.renderer.setShowGutter(textarea.data('gutter'));
+    editor.getSession().setValue(textarea.val());
+    editor.getSession().setMode("ace/mode/" + mode);
+    editor.setTheme("ace/theme/idle_fingers");
+
+    // copy back to textarea on form submit...
+    textarea.closest('form').submit(function() {
+      textarea.val(editor.getSession().getValue());
+    })
+  });
+});
+</script>
 </body>
 </html>
