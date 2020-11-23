@@ -6,6 +6,23 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 session_start();  
+$ID = $_GET['id'];
+
+	$servername = "localhost";
+		$username = "DexterGCC";
+		$password = "dexterSQL@123";
+		$dbname = 'Userdata';
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error)
+	       	{
+		    die("Connection failed: " . $conn->connect_error);
+		}
+
+		$sql = "SELECT code from Submissions where ID='$ID'";
+	$result = $conn->query($sql);
+		$conn->close();
+
 
 //if(isset($_SESSION['uname']))
 //{
@@ -85,7 +102,7 @@ else
 ?>
                         </li>
                         <li class="nav-item">
-                            <a href="/live/" ><button class="btn btn-outline-white btn-sm" type="button">Live Share</button></a>
+                            <button class="btn btn-outline-white btn-sm" type="button">Live Share</button>
                         </li>
 <li class="nav-item">
 <button class="btn btn-outline-white btn-sm" type="button">History</button>
@@ -115,7 +132,12 @@ if(isset($_SESSION['uname']))
             <div class="col-md-6 col-lg-6">
                 <div class="form-group" >
                     <form action="" method="post" id="testform">
-                        <h3>Code:</h3><textarea id = "code" name="data" data-editor="c_cpp" data-gutter="1" style="horizontal-align: center; " rows="10" cols="60"></textarea>
+		    <h3>Code:</h3><textarea id = "code" name="data" data-editor="c_cpp" data-gutter="1" style="horizontal-align: center; " rows="10" cols="60"><?php
+
+foreach($result as $row)
+	echo $row['code'];
+
+?></textarea>
 			<br>
 			<h3>Input:</h3>
                         <textarea name="cusinput" style="vertical-align: center" rows="4" cols="60"></textarea>
